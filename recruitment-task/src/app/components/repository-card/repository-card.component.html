@@ -1,0 +1,35 @@
+<div class="card cursor-pointer">
+  <div class="card-body">
+    <div class="card-title">
+      <div class="title-content">
+        <a [href]="this.repo.html_url" target="_blank">{{ repo.name }}🔗</a>
+        <div class="title-right" (click)="$event.stopPropagation()">
+          <button class="btn btn-light" (click)="toggleDropdown($event)">⋮</button>
+        </div>
+      </div>
+    </div>
+    @if (repo.archived) {
+    <span class="badge bg-primary">Archived</span>
+    }
+
+    <p class="mt-3">{{ repo.description || 'No description' }}</p>
+
+    <div class="text-sm text-gray-700">Topics🏷️: {{ repo.topics?.join(', ') || 'N/A' }}</div>
+    <div class="mt-3 main-statistics">
+      <div>Stars⭐: {{ repo.stargazers_count || 0 }}</div>
+      <div>Forks🍴: {{ repo.forks_count || 0 }}</div>
+      <div>Watchers👀: {{ repo.watchers_count || 0 }}</div>
+      <div>Open issues⚠️: {{ repo.open_issues_count || 0 }}</div>
+    </div>
+
+    @if (dropdownOpen) {
+    <div
+      class="absolute right-0 mt-2 w-64 bg-white border rounded-xl shadow-lg p-4 grid gap-2 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 z-20 main-statistics"
+    >
+      <div class="text-sm text-gray-700">📅 Last pushed: {{ repo.pushed_at | date }}</div>
+      <div class="text-sm text-gray-700">📅 Created: {{ repo.created_at | date }}</div>
+      <div class="text-sm text-gray-700">📅 Updated: {{ repo.updated_at | date }}</div>
+    </div>
+    }
+  </div>
+</div>

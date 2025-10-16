@@ -1,0 +1,12 @@
+<header id="header" class="header fixed-top d-flex align-items-center">
+  <div class="d-flex align-items-center justify-content-between">
+    <input
+      type="text"
+      placeholder="Enter GitHub username..."
+      [(ngModel)]="username"
+      (keyup.enter)="onSearch()"
+      class="border border-gray-300 rounded-lg p-2 flex-1 focus:ring-2 focus:ring-blue-400"
+    />
+    <button (click)="onSearch()" class="btn search-btn">Search</button>
+  </div>
+</header>

@@ -19,7 +19,7 @@ Make sure you have the following installed on your machine:
    git clone https://github.com/Pablo203/recruitment.git
    ```
 2. **Navigate to the project folder**  
-   cd recruitment/recruitment-task
+   cd recruitment/
 3. **Install dependencies**  
    npm install
 4. **Start the application**  

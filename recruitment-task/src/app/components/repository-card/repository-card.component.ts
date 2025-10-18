@@ -9,7 +9,7 @@ import { Component, HostListener, Input } from '@angular/core';
   styleUrl: './repository-card.component.css',
 })
 export class RepositoryCardComponent {
-  @Input() repo!: any;
+  @Input() repo: any = {};
 
   dropdownOpen = false;
 

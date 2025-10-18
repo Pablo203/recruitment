@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { catchError, map, Observable, of } from 'rxjs';
 import { TRepository } from '../models/repository.model';
 
 @Injectable({
@@ -14,7 +14,8 @@ export class RepositoryService {
       map(response => {
         if (!response.ok || response.status !== 200 || response.body === null) return [];
         return response.body as TRepository[];
-      })
+      }),
+      catchError(() => of([]))
     );
   }
 }

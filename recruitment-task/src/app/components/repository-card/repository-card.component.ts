@@ -13,13 +13,13 @@ export class RepositoryCardComponent {
 
   dropdownOpen = false;
 
-  toggleDropdown(event: MouseEvent) {
+  toggleDropdown(event: MouseEvent): void {
     event.stopPropagation();
     this.dropdownOpen = !this.dropdownOpen;
   }
 
   @HostListener('document:click', ['$event'])
-  handleClickOutside(event: Event) {
+  handleClickOutside(event: Event): void {
     const target = event.target as HTMLElement;
     if (!target.closest('.card')) this.dropdownOpen = false;
   }

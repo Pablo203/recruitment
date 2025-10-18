@@ -16,7 +16,7 @@ export class AppComponent {
 
   private repositoryService = inject(RepositoryService);
 
-  onSearch(username: string) {
+  onSearch(username: string): void {
     this.repositoryService
       .getRepositoriesForUser(username)
       .pipe(

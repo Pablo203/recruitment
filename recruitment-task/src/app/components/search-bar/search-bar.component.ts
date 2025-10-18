@@ -1,6 +1,5 @@
-import { Component, EventEmitter, inject, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
 
 @Component({
   standalone: true,
@@ -13,9 +12,7 @@ export class SearchBarComponent {
   username: string = '';
   @Output() search = new EventEmitter<string>();
 
-  private router = inject(Router);
-
-  onSearch() {
+  onSearch(): void {
     if (!this.username.trim()) return;
     this.search.emit(this.username.trim());
   }

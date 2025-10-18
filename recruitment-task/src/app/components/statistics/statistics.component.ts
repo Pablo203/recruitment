@@ -31,7 +31,7 @@ export class StatisticsComponent {
     this.isInitialized = true;
   }
 
-  ngOnChanges(changes: SimpleChanges) {
+  ngOnChanges(changes: SimpleChanges): void {
     if (!this.isInitialized) return;
 
     if (changes['repos']) {
